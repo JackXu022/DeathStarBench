@@ -18,7 +18,7 @@ const sendMovieId = (movieId) => {
     let url = ""; // TODO: get URL there
     let sendData = { movie_id: movieId };
     let returnData;
-    $.get(url, sendData, function (data) {
+    $.getJSON(url, sendData, function (data) {
         returnData = data;
     });
     return returnData;
@@ -40,15 +40,16 @@ const generateReviewList = (reviewList) => {
 const generateCastList = (castList) => {
     castList.forEach(function (item, i) {
         let castItem =
-            '<div class="card mb-1"><div class="card-body"><h3 class="card-title">' +
+            '<div class="card"><div class="card-body"><h3 class="card-title">' +
             item["name"] +
-            '</h3><p class="card-text"></p></div></div>';
+            "</h3></div></div>";
         $("#cast-list").append(castItem);
     });
 };
 
 // render the data in the HTML
 const renderData = (data) => {
+    console.log(data);
     // get data
     let title = data["title"];
     let rating = data["rating"];
