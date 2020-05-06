@@ -24,7 +24,28 @@ const sendMovieId = (movieId) => {
     return returnData;
 };
 
-//
+// generate review list
+const generateReviewList = (reviewList) => {
+    reviewList.forEach(function (item, i) {
+        let reviewItem =
+            '<div class="card review-list-item"><div class="card-header"><p id="review-list-username">Anonymous User</p><p id="review-list-rating">Rating:' +
+            item["rating"] +
+            '</p></div><div class="card-body"><p class="card-text">' +
+            item["text"] +
+            "</p></div></div>";
+        $("#review-list").append(reviewItem);
+    });
+};
+
+const generateCastList = (castList) => {
+    castList.forEach(function (item, i) {
+        let castItem =
+            '<div class="card mb-1"><div class="card-body"><h3 class="card-title">' +
+            item["name"] +
+            '</h3><p class="card-text"></p></div></div>';
+        $("#cast-list").append(castItem);
+    });
+};
 
 // render the data in the HTML
 const renderData = (data) => {
@@ -40,4 +61,15 @@ const renderData = (data) => {
     $("#data-title").text(title);
     $("#data-rating").text(rating);
     $("#data-plot").text(plot);
+
+    generateReviewList(reviews);
+    generateCastList(casts);
 };
+
+// main codes
+
+let movieId = getMovieId();
+
+let data = sendMovieId(movieId);
+
+renderData(data);
