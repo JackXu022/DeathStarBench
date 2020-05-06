@@ -10,43 +10,46 @@
             integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
             crossorigin="anonymous"
         />
+        <link rel="stylesheet" href="styles/movie.css" />
     </head>
     <body>
         <header>
             <nav class="navbar navbar-light bg-light">
-                <a class="navbar-brand" href="#">DeathStar</a>
-                <ul class="navbar-nav mr-auto center">
-                    <li class="nav-item">
-                        Media Service
-                    </li>
-                </ul>
+                <div class="container">
+                    <a class="navbar-brand" href="#">DeathStar</a>
+                    <ul class="navbar-nav mr-auto center">
+                        <li class="nav-item">
+                            Media Service
+                        </li>
+                    </ul>
+                </div>
             </nav>
         </header>
 
         <main class="container">
-            <section class="movie-title row">
-                <h1>
+            <section class="title-section">
+                <h1 id="movie-title">
                     Movie Title
                 </h1>
             </section>
 
-            <section class="movie-detail row">
+            <section class="detail-section row">
                 <div class="left-side col-8">
-                    <div class="plot-rating row">
-                        <section class="plot">
-                            <p>movie plot</p>
-                        </section>
+                    <section class="plot-section">
+                        <h2>Plots</h2>
+                        <p>movie plot...</p>
+                    </section>
 
-                        <section class="rating">
-                            movie rating
-                        </section>
-                    </div>
+                    <section class="rating-section">
+                        <h2>Rating</h2>
+                        <p>5 starts</p>
+                    </section>
 
-                    <section class="review">movie review</section>
+                    <section class="review-section">movie review</section>
                 </div>
 
                 <div class="right-side col-4">
-                    <section class="cast">casts</section>
+                    <section class="cast-section">casts</section>
                 </div>
             </section>
         </main>
