@@ -24,6 +24,8 @@ const sendMovieId = (movieId) => {
     return returnData;
 };
 
+//
+
 // render the data in the HTML
 const renderData = (data) => {
     // get data
