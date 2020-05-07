@@ -32,8 +32,8 @@ const getMovieId = () => {
 // return JSON file
 const sendMovieId = (movieId) => {
     // const url = "http://" + window.location.hostname + ":18080/wk2-api/movie-info/read";
-    const url = "/wk2-api/movie-info/read";
-    let sendData = { movie_id: movieId };
+    const url = "http://ath-1.ece.cornell.edu:18080/wrk2-api/movie-info/read";
+    let sendData = { movie_id: movieId, start: 0, stop: 1000 };
     let returnData;
     $.getJSON(url, sendData, function (data) {
         returnData = data;
@@ -72,7 +72,7 @@ const renderData = (data) => {
     let title = data["title"];
     let plot = data["plot"];
     let rating = Number(data["movie_id"]["avg_rating"]);
-    rating = Math.floor(rating);
+    rating = Math.floor(rating / 2);
     // check the following index
     let reviews = data["reviews"];
     let casts = data["cast_infos"];

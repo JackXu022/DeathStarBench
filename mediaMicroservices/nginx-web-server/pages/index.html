@@ -4,6 +4,42 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Media Service | Home</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="styles/movie.css" />
     </head>
-    <body></body>
+    <body>
+        <header>
+            <nav class="navbar navbar-dark">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">DeathStar</a>
+                    <ul class="navbar-nav mr-auto center">
+                        <li class="nav-item text-light">
+                            Media Service
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main class="container">
+            <section class="title-section">
+                <h1>
+                    Media Service
+                </h1>
+            </section>
+
+            <div id="movie-form">
+                <p>Avengers: Endgame: 299534</p>
+                <form action="movie.html" method="get">
+                    <input type="text" name="movie_id" value="299534" />
+                    <input type="submit" value="submit" />
+                </form>
+            </div>
+        </main>
+    </body>
 </html>
