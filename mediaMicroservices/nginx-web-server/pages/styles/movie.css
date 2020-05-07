@@ -8,6 +8,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #fafcff;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
@@ -57,6 +58,38 @@ h3 {
 
 /* review */
 
+.review-submit-section {
+    margin: 20px 0;
+    display: grid;
+}
+
+#upload-text {
+    height: 200px;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: 1px solid #1f85de;
+    border-radius: 5px;
+}
+
+#upload-text:focus {
+    border-width: 2px;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+button.btn {
+    background-color: #fafcff;
+}
+
+.hidden {
+    display: none;
+}
+
 .review-list-item {
     margin: 20px 0;
     border: 1px solid #1f85de;
@@ -104,4 +137,14 @@ h3 {
 
 #cast-list .card-title {
     margin: 0;
+}
+
+/* upload rating */
+#upload-rating-div span {
+    color: #ccc;
+    font-size: 1.5rem;
+}
+
+.star-active {
+    color: orange !important;
 }

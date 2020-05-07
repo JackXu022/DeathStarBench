@@ -37,7 +37,7 @@
                 <div class="left-side col-md-8">
                     <section class="rating-section">
                         <h2>Rating</h2>
-                        <p id="data-rating">5 starts</p>
+                        <p id="data-rating"></p>
                     </section>
 
                     <section class="plot-section">
@@ -46,7 +46,48 @@
                     </section>
 
                     <section class="review-submit-section">
-                        <h2>Write Review</h2>
+                        <div class="review-button-div">
+                            <button
+                                type="button"
+                                id="review-button"
+                                class="btn btn-md btn-outline-primary"
+                            >
+                                Write Review
+                            </button>
+                        </div>
+
+                        <div id="upload-div" class="">
+                            <div id="upload-rating-div">
+                                <span class="upload-star" id="star1">&#9733</span>
+                                <span class="upload-star" id="star2">&#9733</span>
+                                <span class="upload-star" id="star3">&#9733</span>
+                                <span class="upload-star" id="star4">&#9733</span>
+                                <span class="upload-star" id="star5">&#9733</span>
+                            </div>
+
+                            <div class="upload-text-div">
+                                <textarea
+                                    name="upload-text"
+                                    id="upload-text"
+                                ></textarea>
+                            </div>
+
+                            <button
+                                type="button"
+                                id="upload-button"
+                                class="btn btn-sm btn-outline-primary"
+                            >
+                                Upload
+                            </button>
+
+                            <button
+                                type="button"
+                                id="cancel-button"
+                                class="btn btn-sm btn-outline-danger"
+                            >
+                                Cancel
+                            </button>
+                        </div>
                     </section>
 
                     <section class="review-list-section">
@@ -115,5 +156,6 @@
         ></script>
         <!-- JS -->
         <script src="javascript/movie.js"></script>
+        <script src="javascript/upload_review.js"></script>
     </body>
 </html>
