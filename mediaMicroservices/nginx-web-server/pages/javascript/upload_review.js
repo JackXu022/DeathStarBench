@@ -54,7 +54,6 @@ $("#review-button").click(function () {
 });
 
 $("#upload-button").click(function () {
-    console.log("hello");
     uploadReview(uploadRating);
 });
 

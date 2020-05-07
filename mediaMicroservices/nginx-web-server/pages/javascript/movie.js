@@ -68,7 +68,6 @@ const generateCastList = (castList) => {
 
 // render the data in the HTML
 const renderData = (data) => {
-    console.log(data);
     // get data
     let title = data["title"];
     let plot = data["plot"];
@@ -90,8 +89,10 @@ const renderData = (data) => {
 
 // main codes
 
-// let movieId = getMovieId();
+let movieId = getMovieId();
 
-// let data = sendMovieId(movieId);
+let data = sendMovieId(movieId);
 
-// renderData(data);
+console.log(data);
+
+renderData(data);
