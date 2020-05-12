@@ -32,17 +32,16 @@ const getMovieId = () => {
 // return JSON file
 const sendMovieId = (movieId) => {
     // const url = "http://" + window.location.hostname + ":18080/wk2-api/movie-info/read";
-    const url = "http://ath-1.ece.cornell.edu:18080/wrk2-api/movie-info/read";
+    const url = "http://ath-8.ece.cornell.edu:18080/wrk2-api/movie-info/read";
     let sendData = { movie_id: movieId, start: 0, stop: 1000 };
-    let returnData;
     $.getJSON(url, sendData, function (data) {
-        returnData = data;
+        renderData(data);
     });
-    return returnData;
 };
 
 // generate review list
 const generateReviewList = (reviewList) => {
+    console.log(reviewList);
     reviewList.forEach(function (item, i) {
         let rating = item["rating"];
         let stars = generateStars(rating);
@@ -68,12 +67,13 @@ const generateCastList = (castList) => {
 
 // render the data in the HTML
 const renderData = (data) => {
+    console.log(data);
     // get data
-    let title = data["title"];
+    let movie_info = data["movie_info"];
+    let title = movie_info["title"];
     let plot = data["plot"];
-    let rating = Number(data["movie_id"]["avg_rating"]);
+    let rating = Number(movie_info["avg_rating"]);
     rating = Math.floor(rating / 2);
-    // check the following index
     let reviews = data["reviews"];
     let casts = data["cast_infos"];
 
@@ -81,7 +81,7 @@ const renderData = (data) => {
     $("#data-title").text(title);
     $("#data-plot").text(plot);
 
-    $("#data-rating").html(generateStars(rating));
+    $("#data-rating").text(rating);
 
     generateReviewList(reviews);
     generateCastList(casts);
@@ -91,8 +91,4 @@ const renderData = (data) => {
 
 let movieId = getMovieId();
 
-let data = sendMovieId(movieId);
-
-console.log(data);
-
-renderData(data);
+sendMovieId(movieId);

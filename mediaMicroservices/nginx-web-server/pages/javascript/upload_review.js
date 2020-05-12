@@ -1,11 +1,12 @@
 const uploadReview = (uploadRating) => {
-    // const url = "http://" + window.location.hostname + ":18080/wk2-api/review/compose";
-    const url = "http://ath-1.ece.cornell.edu:18080/wk2-api/review/compose";
+    const url =
+        "http://" + window.location.hostname + ":18080/wrk2-api/review/compose";
+    // const url = "http://ath-8.ece.cornell.edu:18080/wrk2-api/review/compose";
     const username = "username_1";
     const password = "password_1";
     let title = $("#data-title").text().trim();
     let review = $("#upload-text").val().trim();
-    let rating = uploadRating * 2;
+    let rating = uploadRating;
     const data = {
         title: title,
         text: review,
@@ -20,7 +21,7 @@ const uploadReview = (uploadRating) => {
             type: "POST",
             contentType: "application/x-www-form-urlencoded",
             success: function (data, textStatus, jqXHR) {
-                console.log("success upload review");
+                location.reload(true);
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log("error:" + errorThrown);
