@@ -32,8 +32,7 @@ const getMovieId = () => {
 // return JSON file
 const sendMovieId = (movieId) => {
     const url =
-        "http://" + window.location.hostname + ":18080/wk2-api/movie-info/read";
-    // const url = "http://ath-8.ece.cornell.edu:18080/wrk2-api/movie-info/read";
+        "http://" + window.location.hostname + ":18080/wrk2-api/movie-info/read";
     let sendData = { movie_id: movieId, start: 0, stop: 1000 };
     $.getJSON(url, sendData, function (data) {
         renderData(data);
@@ -42,6 +41,7 @@ const sendMovieId = (movieId) => {
 
 // generate review list
 const generateReviewList = (reviewList) => {
+    console.log(reviewList);
     reviewList.forEach(function (item, i) {
         let rating = item["rating"];
         let stars = generateStars(rating);
@@ -65,13 +65,22 @@ const generateCastList = (castList) => {
     });
 };
 
+const generateImage = (imagePath, title) => {
+    let path = "https://image.tmdb.org/t/p/w500" + imagePath;
+    let image = '<img src="' + path + '" alt="' + title + '">';
+    $("#movie-image").append(image);
+}
+
 const getRating = (reviewList) => {
     let sum = 0;
     let count = 0;
     reviewList.forEach(function (item, i) {
-        sum += item["rating"];
+        sum += Number(item["rating"]);
         count++;
     });
+    console.log(sum)
+    console.log(count);
+
     // take average and convert from 5 base to 10 base
     let rating = (sum / count) * 2;
     return rating.toFixed(1);
@@ -84,6 +93,7 @@ const renderData = (data) => {
     let movie_info = data["movie_info"];
     let title = movie_info["title"];
     let plot = data["plot"];
+    let imagePath = movie_info["thumbnail_ids"][0];
     // let rating = Number(movie_info["avg_rating"]);
     // rating = Math.floor(rating / 2);
     let reviews = data["reviews"];
@@ -93,12 +103,15 @@ const renderData = (data) => {
     $("#data-title").text(title);
     $("#data-plot").text(plot);
 
-    let rating = getRating(reviews);
-
-    $("#data-rating").text(rating);
-
-    generateReviewList(reviews);
-    generateCastList(casts);
+    generateImage(imagePath, title);
+    if (reviews.length > 0) {
+        let rating = getRating(reviews);
+        $("#data-rating").text(rating);
+        generateReviewList(reviews);
+    }
+    if (casts.length > 0) {
+        generateCastList(casts);
+    }
 };
 
 // main codes

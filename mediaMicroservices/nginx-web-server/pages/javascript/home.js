@@ -1,5 +1,6 @@
 const getMovieList = () => {
-    $.getJSON("../../../datasets/tmdb/movies.json", function (data) {
+    $.getJSON("/datasets/movies.json", function (data) {
+        console.log(data);
         renderData(data);
     });
 };

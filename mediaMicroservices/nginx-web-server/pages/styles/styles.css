@@ -67,6 +67,16 @@ h1 {
     text-align: center;
 }
 
+/* movie image */
+#movie-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+#movie-image {
+    margin: 0 0 20px;
+}
+
 /* rating */
 
 .rating-section {
@@ -179,4 +189,8 @@ button.btn {
 
 .star-active {
     color: orange !important;
+}
+
+span.rating-star {
+    color: #ccc;
 }
