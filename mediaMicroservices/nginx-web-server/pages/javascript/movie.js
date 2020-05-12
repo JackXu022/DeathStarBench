@@ -31,8 +31,9 @@ const getMovieId = () => {
 // send movie id to Lua
 // return JSON file
 const sendMovieId = (movieId) => {
-    // const url = "http://" + window.location.hostname + ":18080/wk2-api/movie-info/read";
-    const url = "http://ath-8.ece.cornell.edu:18080/wrk2-api/movie-info/read";
+    const url =
+        "http://" + window.location.hostname + ":18080/wk2-api/movie-info/read";
+    // const url = "http://ath-8.ece.cornell.edu:18080/wrk2-api/movie-info/read";
     let sendData = { movie_id: movieId, start: 0, stop: 1000 };
     $.getJSON(url, sendData, function (data) {
         renderData(data);
@@ -41,7 +42,6 @@ const sendMovieId = (movieId) => {
 
 // generate review list
 const generateReviewList = (reviewList) => {
-    console.log(reviewList);
     reviewList.forEach(function (item, i) {
         let rating = item["rating"];
         let stars = generateStars(rating);
@@ -65,6 +65,18 @@ const generateCastList = (castList) => {
     });
 };
 
+const getRating = (reviewList) => {
+    let sum = 0;
+    let count = 0;
+    reviewList.forEach(function (item, i) {
+        sum += item["rating"];
+        count++;
+    });
+    // take average and convert from 5 base to 10 base
+    let rating = (sum / count) * 2;
+    return rating.toFixed(1);
+};
+
 // render the data in the HTML
 const renderData = (data) => {
     console.log(data);
@@ -72,14 +84,16 @@ const renderData = (data) => {
     let movie_info = data["movie_info"];
     let title = movie_info["title"];
     let plot = data["plot"];
-    let rating = Number(movie_info["avg_rating"]);
-    rating = Math.floor(rating / 2);
+    // let rating = Number(movie_info["avg_rating"]);
+    // rating = Math.floor(rating / 2);
     let reviews = data["reviews"];
     let casts = data["cast_infos"];
 
     // fill data in HTML
     $("#data-title").text(title);
     $("#data-plot").text(plot);
+
+    let rating = getRating(reviews);
 
     $("#data-rating").text(rating);
 

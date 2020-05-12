@@ -33,6 +33,34 @@ h3 {
     background-color: #1f85de;
 }
 
+/* ========= */
+/* Home Page */
+.movie-list-item {
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.card-img-top {
+    width: 100%;
+}
+
+.control-section {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+    margin: 10px 0;
+}
+
+#prev-button {
+    margin: 0 5px;
+    grid-column: 11 / span 1;
+}
+
+#next-button {
+    margin: 0 5px;
+    grid-column: 12 / span 1;
+}
+
 /* title */
 
 h1 {

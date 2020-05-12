@@ -14,7 +14,7 @@ const uploadReview = (uploadRating) => {
         password: password,
         rating: rating,
     };
-    console.log(data);
+    // console.log(data);
     if (rating > 0 && review != "" && review != null) {
         $.ajax(url, {
             data: data,
